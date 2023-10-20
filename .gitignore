@@ -367,3 +367,4 @@ MigrationBackup/
 FodyWeavers.xsd
 /CardinalEngine/Example/TestComponent.cs
 /CardinalEngine/Example/TestGame.cs
+/TestComponent.cs
