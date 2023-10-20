@@ -1,0 +1,10 @@
+<Project Sdk="Godot.NET.Sdk/4.2.0-dev.5">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <RootNamespace>CardinalClient</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="NetCoreServer" Version="7.0.0" />
+  </ItemGroup>
+</Project>
