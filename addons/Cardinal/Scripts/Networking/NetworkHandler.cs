@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace CardinalEngine {
 	internal class NetworkHandler {
@@ -23,6 +24,7 @@ namespace CardinalEngine {
 			_packets.Add(4, AddComponent);
 			_packets.Add(5, RemoveComponent);
 			_packets.Add(6, SetNetworkId);
+            _packets.Add(7, SendComponentCommand);
 		}
 
         public void ReadMainThreadQueue() {
@@ -124,5 +126,25 @@ namespace CardinalEngine {
 			Guid NetworkId = new Guid(_netReader.ReadByteArray(_netReader.ReadByte()));
 			Cardinal.LocalNetworkID = NetworkId;
 		}
-	}
+
+        private void SendComponentCommand() {
+            int entityID = _netReader.ReadInt();
+            byte componentID = _netReader.ReadByte();
+            int commandID = _netReader.ReadByte();
+            List<object> parameters = new List<object>();
+
+            while (_netReader.Index < _netReader.Data.Length - 1) {
+                parameters.Add(_netReader.ReadSupported());
+            }
+
+            NetEntity entity = Cardinal.Instance.GetEntity(entityID);
+            if (entity != null) {
+                NetComponent component = entity.GetComponent(componentID);
+                if (component != null) {
+                    MethodInfo method = RemoteAttribute.GetMethodById(component, commandID);
+                    method?.Invoke(component, parameters.ToArray());
+                }
+            }
+        }
+    }
 }
