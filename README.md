@@ -1,4 +1,5 @@
-![CardinalIcon](https://github.com/Sirvoid/CardinalEngine/assets/17113321/fc71c353-fcf1-4010-81fb-84c9d5c25aa0)
+![CardinalIcon](https://github.com/Sirvoid/Cardinal-Godot/assets/17113321/67b6285e-9ed8-4bd8-81e5-d2fcb87cae6c)
+
 # Cardinal Engine Godot Client
 
 (WIP)
