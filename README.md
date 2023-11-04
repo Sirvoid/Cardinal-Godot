@@ -5,3 +5,5 @@
 (WIP)
 
 A multiplayer engine offering a streamlined approach to creating open-world games and more.
+
+[Cardinal Server Engine](https://github.com/Sirvoid/Cardinal-Engine)
