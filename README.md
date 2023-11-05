@@ -5,5 +5,6 @@
 (WIP)
 
 A multiplayer engine offering a streamlined approach to creating open-world games and more.
+Requires .NET 7.0 and NetCoreServer
 
 [Cardinal Server Engine](https://github.com/Sirvoid/Cardinal-Engine)
